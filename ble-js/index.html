@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
+    <title>Plant Stats</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="ble.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+    <div id="header">
+    <h1>Plant Stats</h1>
+    <p>Plant Name: {{ plantName }}</p>
+    <input type="text" id="plantName" placeholder="Name your plant">
+    <button @click="namePlant">Save Name</button>
+    </div>
+      <p id="connectButtons">
+          <button @click="connectToDevice">Connect</button>
+          <button @click="receiveData">Update Stats</button>
+      </p>
+    <div id="currentStats">
+      <h3>Current Stats</h3>
+      <p>Temperature: {{ temperature }}</p>
+      <p>Humidity: {{ humidity }}</p>
+      <p>Light: {{ light }}</p>
+      <p>Soil Moisture: {{ moisture }}</p>
+      <p>Resevoir Status: {{ resevoir }}</p>
+      <p>Last Watered: {{ lastWatered }}</p>
+    </div>
+    <div id="pastStats">
+    <h3>Past Stats</h3>
+      <ul id="received-messages">
+     </ul>
+    </div>
+    <script src="ble.js"></script>
+  </body>
+</html>
